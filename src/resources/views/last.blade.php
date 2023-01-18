@@ -20,8 +20,8 @@
                 <small class="float-end opacity-40 float-right text-right">{{$info->setting->descr}}</small>
             </div>
             @if($info->data->count())
-                <small>За {{$info->data->last()->date_day}}</small>
-                <h1>{{number_format($info->data->last()->amount)}}</h1>
+                <small>За {{$info->data->first()->date_day}}</small>
+                <h1>{{number_format($info->data->first()->amount)}}</h1>
             @endif
         </div>
     </div>

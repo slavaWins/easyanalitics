@@ -15,8 +15,8 @@
             <div class=""
                  style="position: absolute; right: 19px; top: 19px; width: 60%; text-align: right; z-index: 2;  ">
                 @if($info->data->count())
-                    <small>За {{$info->data->last()->date_day}}</small>
-                    <h1>{{number_format($info->data->last()->amount)}}</h1>
+                    <small>За {{$info->data->first()->date_day}}</small>
+                    <h1>{{number_format($info->data->first()->amount)}}</h1>
 
                 @endif
                 <small>{{$info->setting->ind}}</small><BR>
