@@ -15,7 +15,7 @@ class GenereateExample extends Command
      *
      * @var string
      */
-    protected $signature = 'easyanalitics';
+    protected $signature = 'easyanalitics:full';
 
     /**
      * The console command description.
@@ -57,7 +57,7 @@ class GenereateExample extends Command
         $maxVal = rand(10, 1900);
 
         for ($i = 0; $i < rand(12, 42); $i++) {
-            EasyAnaliticsHelper::Increment($easyAnaliticsSetting->ind, rand($maxVal / 2, $maxVal), Carbon::now()->addDays(-$i));
+            EasyAnaliticsHelper::Increment($easyAnaliticsSetting->ind, rand($maxVal / 2, $maxVal), "null","null",Carbon::now()->addDays(-$i));
         }
 
         $this->info("Создана аналитика " . $easyAnaliticsSetting->name);

@@ -4,6 +4,7 @@ namespace SlavaWins\EasyAnalitics\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use SlavaWins\EasyAnalitics\Console\Commands\GenereateExample;
+use SlavaWins\EasyAnalitics\Console\Commands\GenereateItems;
 
 class EasyAnaliticsServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class EasyAnaliticsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 GenereateExample::class,
+                GenereateItems::class,
             ]);
         }
 
