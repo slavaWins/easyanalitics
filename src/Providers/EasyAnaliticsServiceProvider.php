@@ -3,6 +3,7 @@
 namespace SlavaWins\EasyAnalitics\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use SlavaWins\EasyAnalitics\Console\Commands\GenereateExample;
 
 class EasyAnaliticsServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,13 @@ class EasyAnaliticsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                GenereateExample::class,
+            ]);
+        }
+
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'easyanalitics');
 
 

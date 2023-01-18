@@ -1,10 +1,10 @@
 @php
 
-    use \App\Models\EasyAnalitics\EasyAnaliticsSetting;
+    use SlavaWins\EasyAnalitics\Models\EasyAnaliticsSetting;
 
 
-    /** @var string $ind */
-    $info  = EasyAnaliticsSetting::GetAnaliticsData($ind);
+     /** @var string $ind */
+     $info  = EasyAnaliticsSetting::GetAnaliticsData($ind);
 
 @endphp
 

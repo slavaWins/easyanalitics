@@ -2,7 +2,7 @@
 
 namespace SlavaWins\EasyAnalitics\Models;
 
-use App\Library\EasyAnalitics\EasyAnaliticsStruct;
+use SlavaWins\EasyAnalitics\Library\EasyAnaliticsStruct;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
