@@ -3,8 +3,8 @@
 namespace SlavaWins\EasyAnalitics\Library;
 
 
-use App\Models\EasyAnalitics\EasyAnalitics;
-use App\Models\EasyAnalitics\EasyAnaliticsSetting;
+use SlavaWins\EasyAnalitics\Models\EasyAnalitics;
+use SlavaWins\EasyAnalitics\Models\EasyAnaliticsSetting;
 use Carbon\Carbon;
 
 class EasyAnaliticsHelper

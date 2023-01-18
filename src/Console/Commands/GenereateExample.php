@@ -2,7 +2,7 @@
 
 namespace SlavaWins\EasyAnalitics\Console\Commands;
 
-use  SlavaWins\EasyAnalitics\Library\EasyAnaliticsHelper;
+use SlavaWins\EasyAnalitics\Library\EasyAnaliticsHelper;
 use SlavaWins\EasyAnalitics\Models\EasyAnalitics;
 use SlavaWins\EasyAnalitics\Models\EasyAnaliticsSetting;
 use Carbon\Carbon;
@@ -43,7 +43,9 @@ class GenereateExample extends Command
 
     public function handle()
     {
+
         $easyAnaliticsSetting = new EasyAnaliticsSetting();
+
         $easyAnaliticsSetting->name = $this->randText(['Доходы', 'Запросы', 'Покупки', 'Авторизации', 'Выходы', 'Регистрации',]);
         $easyAnaliticsSetting->name .= ' ' . $this->randText(['пользователей', 'новостей', 'товаров', 'сущностей', 'заказов', 'инструментов',]);
         $easyAnaliticsSetting->descr = "Рандомно созданая аналитика и все её данные, для того что бы быстро затестить функции пакета.";
@@ -58,7 +60,7 @@ class GenereateExample extends Command
             EasyAnaliticsHelper::Increment($easyAnaliticsSetting->ind, rand($maxVal / 2, $maxVal), Carbon::now()->addDays(-$i));
         }
 
-        $this->info($easyAnaliticsSetting->name);
+        $this->info("Создана аналитика " . $easyAnaliticsSetting->name);
         $this->info("Процесс успешно выполнен!");
     }
 }
