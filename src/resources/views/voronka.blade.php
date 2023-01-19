@@ -26,7 +26,7 @@
             <div class="" style="position: absolute; right: 19px;top: 19px; width: 60%; text-align: right; z-index: 2;">
                 <span class="float-end b" style="background: #ffffffab; padding: 5px;">
                       @foreach($voronkaData as $ind=>$data)
-                        <BR>  <small>  {{$data['name']}} {{$data['percent']}}%</small>
+                        <BR>  <small>  {{$data['name']}} {{$data['percent'] ?? 0}}%</small>
 
                     @endforeach
                 </span>
@@ -34,8 +34,8 @@
 
             <div class="col-12">
                 @foreach($voronkaData as $ind=>$data)
-                    <div class="col-12 p2 voronkaCol mb-2" style="width: {{$data['percent']}}%;">
-                        {{$data['name']}} / <small> {{$ind}}</small>  | {{$data['val']}} шт. / {{$data['percent']}}%
+                    <div class="col-12 p2 voronkaCol mb-2" style="width: {{$data['percent']?? 0}}%;">
+                        {{$data['name']}} / <small> {{$ind}}</small>  | {{$data['val'] ?? 0}} шт. / {{$data['percent'] ?? 0}}%
                     </div>
                 @endforeach
             </div>
@@ -45,5 +45,5 @@
     </div>
 
 @else
-    Not found  {{$ind}} analitics!
+    Не удалось создать воронку, не хватает данных!
 @endif

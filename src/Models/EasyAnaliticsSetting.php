@@ -29,10 +29,14 @@ class EasyAnaliticsSetting extends Model
         $listSetting = [];
         foreach ($inds as $ind) {
             $setting = self::GetAnaliticsData($ind, $forDays);
-            if ($setting) {
-                $listSetting[] = $setting;
-            }
+            if (!$setting) continue;
+            if (count($setting->data) < 2) continue;
+
+            $listSetting[] = $setting;
+
         }
+
+        if(count($listSetting)<2)return null;
 
         $listDate = [];
         foreach ($listSetting as $setting) {
@@ -66,14 +70,17 @@ class EasyAnaliticsSetting extends Model
             }
         }
         $maxVal = 0;
-        foreach ($matrixVal as $K => $V)  $matrixVal[$K]['val'] = round($V['val'] / count($listDate));
+        foreach ($matrixVal as $K => $V) $matrixVal[$K]['val'] = round($V['val'] / count($listDate));
         foreach ($matrixVal as $K => $V) $maxVal = max($maxVal, $V['val']);
-        foreach ($matrixVal as $K => $V) $matrixVal[$K]['percent'] =round( $V['val'] / $maxVal * 100);
+        foreach ($matrixVal as $K => $V) $matrixVal[$K]['percent'] = round($V['val'] / $maxVal * 100);
 
         foreach ($listSetting as $V) {
             $matrixVal[$V->setting->ind]['name'] = $V->setting->name;
         }
 
+        foreach ($matrixVal as $K => $V) {
+            if (!isset($V['val'])) return null;
+        }
         // dd($listDate);
         return $matrixVal;
     }
@@ -106,7 +113,7 @@ class EasyAnaliticsSetting extends Model
 
     public function GetAnalitics($forDays = 30)
     {
-        $list = EasyAnalitics::where("ind", $this->ind)->orderBy("id")->get();
+        $list = EasyAnalitics::where("ind", $this->ind)->orderBy("id")->get(); //С
         return $list;
     }
 }
