@@ -18,8 +18,10 @@ class EasyAnaliticsHelper
      * @param string $defaultName Дефалтное название, что бы из кода сразу создать представление настроек
      * @return void
      */
-    public static function Increment(string $ind, int $val = 1, string $defaultName = "No name",  $descr = "", Carbon $date = null)
+    public static function Increment(string $ind, int $val = 1, string $defaultName = "No name", $descr = "", Carbon $date = null)
     {
+        if (config('app.env') == 'testing') return;
+
         if (!$date) $date = Carbon::now();
         $dateString = $date->format("d.m.Y");
 
