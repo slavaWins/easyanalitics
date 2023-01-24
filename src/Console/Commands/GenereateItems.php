@@ -53,7 +53,7 @@ class GenereateItems extends Command
             $this->info("Генерация рандомной аналитики для " . $easyAnaliticsSetting->name);
 
             $maxVal = rand(10, 1900);
-            for ($i = 0; $i < rand(9, 28); $i++) {
+            for ($i = rand(17, 28); $i >0; $i--) {
                 EasyAnaliticsHelper::Increment($easyAnaliticsSetting->ind, rand($maxVal / 2, $maxVal), "","",Carbon::now()->addDays(-$i));
             }
         }
