@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  **/
 class EasyAnalitics extends Model
 {
-    use HasFactory;
 
     public $timestamps = false;
 }

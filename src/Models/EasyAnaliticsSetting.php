@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  **/
 class EasyAnaliticsSetting extends Model
 {
-    use HasFactory;
 
     /**
      * Генерация воронки продаж из нескольких аналитик
