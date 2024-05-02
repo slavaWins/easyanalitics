@@ -10,7 +10,7 @@
 @if($info)
 
     <div class="card mb-4 ">
-        <div class="card-body   p-4 border-dark " style="min-height: 170px;">
+        <div class="card-body   p-4   " style="min-height: 170px;">
             <div class="" style="position: absolute; right: 19px;top: 19px; width: 60%; text-align: right; z-index: 2;">
                 <span class="float-end b">
                     <small>{{$info->setting->ind}}</small>

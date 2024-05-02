@@ -25,9 +25,8 @@
 
             @if($info->data->count())
                 @foreach($info->data->take(15) as $item)
-                    <div class="col mb-1  "
-                         style="height: 3px; border-radius: 5px;
-                 background: #9ba0da;
+                    <div class="col mb-1  easyanalitics_linechart "
+                         style="
                  width: {{ $item->amount/$info->max*50  }}%;">
                     </div>
                 @endforeach
